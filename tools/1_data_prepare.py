@@ -4,7 +4,7 @@
 Author: Northfun
 Date: 2022-05-28 14:38:57
 LastEditors: Northfun
-LastEditTime: 2022-05-28 15:24:51
+LastEditTime: 2022-06-05 00:10:26
 FilePath: 1_data_prepare.py
 '''
 #!/usr/bin/python

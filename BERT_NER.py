@@ -55,7 +55,7 @@ flags.DEFINE_bool(
 )
 
 flags.DEFINE_integer(
-    "max_seq_length", 128,
+    "max_seq_length", 512,
     "The maximum total input sequence length after WordPiece tokenization."
 )
 
@@ -661,7 +661,7 @@ def main(_):
         output_predict_file = os.path.join(FLAGS.output_dir, "label_test.txt")
         with open(output_predict_file, 'w') as writer:
             for prediction in result:
-                output_line = "\n".join(
+                output_line = " ".join(
                     id2label[id] for id in prediction if id != 0) + "\n"
                 writer.write(output_line)
 
