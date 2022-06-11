@@ -81,7 +81,7 @@ def data_process(path, model="trigger", is_predict=False):
 if __name__ == "__main__":
     # data process
     data_dir = "../app_data/"
-    data_file = "dev.jsonl"
+    data_file = "train_all.jsonl"
     train_tri = data_process(f"{data_dir}{data_file}", "ner")
-    write_by_lines("../app_data/dev.tsv", train_tri)
+    write_by_lines("../app_data/train.txt", train_tri)
     print("=================end data preprocess==============")
