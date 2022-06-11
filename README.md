@@ -38,3 +38,7 @@ loss = 40.160034
 测试结果第一句：
 
 ![](test.png)
+
+
+
+# python BERT_NER.py --data_dir=app_data/ --bert_config_file=checkpoint/bert_config.json --init_checkpoint=checkpoint/bert_model.ckpt --vocab_file=vocab.txt --num_train_epochs=10 --output_dir=./output/result_dir/ --do_train=false --do_eval=true --do_predict=true
