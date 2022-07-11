@@ -7,8 +7,6 @@ LastEditors: Northfun
 LastEditTime: 2022-06-05 00:10:26
 FilePath: 1_data_prepare.py
 '''
-#!/usr/bin/python
-# -*- coding: UTF-8 -*-
 
 import os
 import sys
@@ -29,7 +27,8 @@ def data_process(path, model="trigger", is_predict=False):
         return data
 
     sentences = []
-    output = ["text_a"] if is_predict else ["text_a\tlabel"]
+    # output = ["text_a"] if is_predict else ["text_a\tlabel"]
+    output = []
     with open(path) as f:
         for line in f:
             d_json = json.loads(line.strip())
@@ -72,16 +71,21 @@ def data_process(path, model="trigger", is_predict=False):
                         argument = ner["argument"]
                         labels = label_data(labels, start,
                                             len_ch(argument), ner_type)
-                    output.append("{}\t{}".format('\002'.join(text_a),
-                                                  '\002'.join(labels)))
+                    #output.append("{}\t{}".format('\002'.join(text_a),
+                    #                              '\002'.join(labels)))
+                    output.extend([f'{word}\t{label}' for word, label in zip(text_a, labels)])
+                    output.append('\n')
+
+                elif model == "phrase":
+                    output.append(d_json["text"])
 
     return output
 
 
 if __name__ == "__main__":
     # data process
-    data_dir = "../app_data/"
+    data_dir = "../app_data2/"
     data_file = "train_all.jsonl"
-    train_tri = data_process(f"{data_dir}{data_file}", "ner")
-    write_by_lines("../app_data/train.txt", train_tri)
+    train_tri = data_process(f"{data_dir}{data_file}", "phrase")
+    write_by_lines("../app_data2/input.txt", train_tri)
     print("=================end data preprocess==============")
