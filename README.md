@@ -42,3 +42,6 @@ loss = 40.160034
 
 
 # python BERT_NER.py --data_dir=app_data/ --bert_config_file=checkpoint/bert_config.json --init_checkpoint=checkpoint/bert_model.ckpt --vocab_file=vocab.txt --num_train_epochs=10 --output_dir=./output/result_dir/ --do_train=false --do_eval=true --do_predict=true
+
+
+# python ./bert/run_classifier.py --task_name=chi --do_train=true --do_eval=true  --do_predict=false --data_dir=app_cls_data/ --vocab_file=vocab.txt --bert_config_file=checkpoint/bert_config.json --init_checkpoint=checkpoint/bert_model.ckpt --max_seq_length=128 --train_batch_size=32 --learning_rate=2e-5 --num_train_epochs=3.0 --output_dir=./output/result_dir/
