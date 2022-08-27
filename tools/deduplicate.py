@@ -23,8 +23,8 @@ def read_lines(file):
 
         print(f'before:{count},after:{len(sentences)}')
 
-        if len(sentences) == count:
-            return None 
+        # if len(sentences) == count:
+        #     return None 
 
         return list(sentences)
 
@@ -53,7 +53,7 @@ def get_filename(file):
 
 
 if __name__ == '__main__':
-    input_file = '../app_data2/train_aug_3.txt'
+    input_file = '../app_data2/train.txt'
     file_name = get_filename(input_file)
 
     output_file = file_name + '_dedup.txt'
